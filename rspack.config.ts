@@ -1,6 +1,6 @@
 import { defineConfig } from '@rspack/cli';
 import { rspack } from '@rspack/core';
-import * as RefreshPlugin from '@rspack/plugin-react-refresh';
+import { ReactRefreshRspackPlugin } from '@rspack/plugin-react-refresh';
 import flowbiteReact from 'flowbite-react/plugin/rspack';
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -57,7 +57,7 @@ export default defineConfig({
     new rspack.HtmlRspackPlugin({
       template: './index.html',
     }),
-    isDev ? new RefreshPlugin() : null,
+    isDev ? new ReactRefreshRspackPlugin() : null,
     flowbiteReact(),
   ].filter(Boolean),
   optimization: {
